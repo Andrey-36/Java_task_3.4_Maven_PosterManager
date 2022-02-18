@@ -10,8 +10,8 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
 class CartRepositoryTest {
-private CartRepository repository = Mockito.mock(CartRepository.class);
-private CartManager manager = new CartManager(repository);
+    private CartRepository repository = Mockito.mock(CartRepository.class);
+    private CartManager manager = new CartManager(repository);
     private PosterManager first = new PosterManager(1, 1, "filmone", 1);
     private PosterManager second = new PosterManager(2, 2, "filmtwo", 2);
     private PosterManager third = new PosterManager(3, 3, "filmthree", 3);
@@ -23,8 +23,8 @@ private CartManager manager = new CartManager(repository);
 
         int expected = 60;
         int actual = manager.sum();
-    assertEquals(expected, actual);
-    verify(repository).findAll();
+        assertEquals(expected, actual);
+        verify(repository).findAll();
     }
 
     @Test
@@ -44,6 +44,7 @@ private CartManager manager = new CartManager(repository);
         PosterManager[] actual = repo.findAll();
         assertArrayEquals(expected, actual);
     }
+
     @Test
     void findByIdInsideArray() {
         PosterManager first = new PosterManager(1, 1, "filmone", 1);
@@ -59,4 +60,14 @@ private CartManager manager = new CartManager(repository);
         PosterManager[] actual = repo.findAll();
         assertArrayEquals(expected, actual);
     }
-   }
+    @Test
+    void removeAll() {
+        CartRepository repo = new CartRepository();
+
+        repo.removeAll();
+
+        PosterManager[] expected = new PosterManager[0];
+        PosterManager[] actual = repo.findAll();
+        assertArrayEquals(expected, actual);
+    }
+}
