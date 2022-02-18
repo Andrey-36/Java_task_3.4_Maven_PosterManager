@@ -30,10 +30,10 @@ class CartFilmTest {
         manager.save(eighth);
         manager.save(ninth);
 
-        manager.getAll();
+        manager.findLast();
 
         PosterManager[] expected = {ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
-        PosterManager[] actual = manager.getAll();
+        PosterManager[] actual = manager.findLast();
         assertArrayEquals(expected, actual);
     }
 
@@ -65,10 +65,10 @@ class CartFilmTest {
         manager.save(fourth);
         manager.save(fifth);
 
-        manager.getAll();
+        manager.findLast();
 
         PosterManager[] expected = {third, second, first};
-        PosterManager[] actual = manager.getAll();
+        PosterManager[] actual = manager.findLast();
         assertArrayEquals(expected, actual);
     }
 
@@ -79,7 +79,7 @@ class CartFilmTest {
         manager.findAll();
 
         PosterManager[] expected = {};
-        PosterManager[] actual = manager.getAll();
+        PosterManager[] actual = manager.findLast();
         assertArrayEquals(expected, actual);
     }
 

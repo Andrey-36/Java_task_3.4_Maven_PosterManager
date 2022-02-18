@@ -33,7 +33,7 @@ public class CartFilm {
         return films;
     }
 
-    public PosterManager[] getAll() {
+    public PosterManager[] findLast() {
         int resultLenght = films.length;
         if (resultLenght > limit) {
             resultLenght = limit;
@@ -73,4 +73,4 @@ public class CartFilm {
         }
         films = tmp;
     }
-    }
+}
