@@ -53,13 +53,33 @@ class CartRepositoryTest {
 
         CartRepository repo = new CartRepository();
         repo.save(first);
+        repo.save(second);
+        repo.save(third);
 
         repo.findById(1);
 
-        PosterManager[] expected = {first};
+        PosterManager expected = first;
+        PosterManager actual = repo.findById(1);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void findByIdAboveArray() {
+        PosterManager first = new PosterManager(1, 1, "filmone", 1);
+        PosterManager second = new PosterManager(2, 2, "filmtwo", 2);
+        PosterManager third = new PosterManager(3, 3, "filmthree", 3);
+
+        CartRepository repo = new CartRepository();
+        repo.save(first);
+        repo.save(second);
+        repo.save(third);
+
+        repo.findById(4);
+
+        PosterManager[] expected = new PosterManager[] {first, second, third};
         PosterManager[] actual = repo.findAll();
         assertArrayEquals(expected, actual);
     }
+
     @Test
     void removeAll() {
         CartRepository repo = new CartRepository();
