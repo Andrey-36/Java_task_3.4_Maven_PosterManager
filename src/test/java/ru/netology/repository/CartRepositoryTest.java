@@ -62,6 +62,7 @@ class CartRepositoryTest {
         PosterManager actual = repo.findById(1);
         assertEquals(expected, actual);
     }
+
     @Test
     void findByIdAboveArray() {
         PosterManager first = new PosterManager(1, 1, "filmone", 1);
@@ -75,7 +76,7 @@ class CartRepositoryTest {
 
         repo.findById(4);
 
-        PosterManager[] expected = new PosterManager[] {first, second, third};
+        PosterManager[] expected = new PosterManager[]{first, second, third};
         PosterManager[] actual = repo.findAll();
         assertArrayEquals(expected, actual);
     }
