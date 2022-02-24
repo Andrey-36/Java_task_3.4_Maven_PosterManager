@@ -42,7 +42,7 @@ public class CartFilm {
         // перебираем массив в прямом порядке
         // но кладём в результаты в обратном
         for (int i = 0; i < resultLenght; i++) {         // ячейка в которую будем копировать
-            int index = resultLenght - i - 1;              // ячейка из которой будем копировать
+            int index = films.length - i - 1;              // ячейка из которой будем копировать
             result[i] = films[index];
         }
         return result;

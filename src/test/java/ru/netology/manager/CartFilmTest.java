@@ -67,7 +67,7 @@ class CartFilmTest {
 
         manager.findLast();
 
-        PosterManager[] expected = {third, second, first};
+        PosterManager[] expected = {fifth, fourth, third};
         PosterManager[] actual = manager.findLast();
         assertArrayEquals(expected, actual);
     }
